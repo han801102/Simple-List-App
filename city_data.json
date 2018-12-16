@@ -1,0 +1,46 @@
+{
+	"city": [{
+			"id": 1,
+			"item_type": "basic",
+			"title": "Jiufen",
+			"sub_title": "During the first years of the Qing Dynasty, the isolated village housed nine families, thus the village would request \"nine portions\" every time shipments arrived from town. Later Kau-hun would become the name of the village.",
+			"image_url": "https://storage.googleapis.com/assets.tripmoment.com/system/redactor_assets/pictures/16951/content_68e46b44-6ba3-4ab4-94cf-3f10d5a0f924.jpg"
+		},
+		{
+			"id": 2,
+			"item_type": "single_image",
+			"image_url": "https://storage.googleapis.com/assets.tripmoment.com/system/redactor_assets/pictures/16951/content_68e46b44-6ba3-4ab4-94cf-3f10d5a0f924.jpg"
+		},
+		{
+			"id": 3,
+			"item_type": "basic",
+			"title": "Tamsui",
+			"sub_title": "Tamsui (Hokkien POJ:Tām-chúi; Hokkien Tâi-lô:Tām-tsuí; Mandarin Pīnyīn:Dànshuǐ) is a sea-side district in New Taipei, Taiwan. It is named after the Tamsui River; the name means \"fresh water\".",
+			"image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/%E6%B7%A1%E6%B0%B4%E8%80%81%E8%A1%97.jpg/500px-%E6%B7%A1%E6%B0%B4%E8%80%81%E8%A1%97.jpg"
+		}
+	],
+	"food": [{
+			"id": 1,
+			"item_type": "single_image",
+			"image_url": "https://img.sant.tw/pixnet/329e4254fa7e66e0dbb07d37c89e3db9.jpg"
+		},
+		{
+			"id": 2,
+			"item_type": "basic",
+			"title": "Bubble tea",
+			"sub_title": "Bubble tea (also known as pearl milk tea, bubble milk tea, or simply boba)",
+			"image_url": "http://842.tw.tranews.com/Show/images/News/3254579_1.jpg"
+		}
+	],
+	"shop": [{
+			"id": 1,
+			"item_type": "single_image",
+			"image_url": "https://s314.siliconimg.com/kb/content_images/2012/02/10/55149/1328851223_306.jpg"
+		},
+		{
+			"id": 2,
+			"item_type": "single_image",
+			"image_url": "https://www.kkbox.com/images/fb/kkbox_logo_1200.jpg"
+		}
+	]
+}
