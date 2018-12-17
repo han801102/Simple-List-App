@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.example.han.techquiz.R
+import com.google.android.material.tabs.TabLayout
 
 /**
  * A fragment with tab swipe layout
@@ -25,6 +27,11 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initViewPager(view)
+    }
+
     override fun onResume() {
         super.onResume()
     }
@@ -33,10 +40,16 @@ class HomeFragment : Fragment() {
         super.onDetach()
     }
 
+    fun initViewPager(view: View) {
+        var viewPager = view.findViewById<ViewPager>(R.id.view_pager)
+        var pagerAdapter = HomeFragmentPagerAdapter(fragmentManager)
+        viewPager.adapter = pagerAdapter
+        var tabLayout = view.findViewById<TabLayout>(R.id.sliding_tabs)
+        tabLayout.setupWithViewPager(viewPager)
+    }
+
     companion object {
-        fun newInstance(): HomeFragment {
-            return HomeFragment()
-        }
+        fun newInstance(): HomeFragment = HomeFragment()
     }
 
 }
