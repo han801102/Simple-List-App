@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.han.techquiz.citytour.CityGuideFragment
+import com.example.han.techquiz.food.FoodFragment
 import com.example.han.techquiz.shop.ShopFragment
 import java.lang.Exception
 
@@ -12,7 +13,7 @@ class HomeFragmentPagerAdapter(fragmentManager: FragmentManager?) : FragmentPage
         return when(position) {
             0 -> CityGuideFragment.newInstance()
             1 -> ShopFragment.newInstance()
-            2 -> CityGuideFragment.newInstance()
+            2 -> FoodFragment.newInstance()
             else -> throw Exception("Not defined position")
         }
     }
