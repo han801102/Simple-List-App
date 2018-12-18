@@ -1,18 +1,26 @@
-package com.example.han.techquiz.home
+package com.example.han.techquiz.citytour
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.han.techquiz.R
+import com.example.han.techquiz.home.DynamicItemAdapter
 
 /**
  * A fragment representing a city guide list.
  */
-class CityGuideFragment : Fragment() {
+class CityGuideFragment : Fragment(), CityGuideView {
     private var cityGuideAdapter = DynamicItemAdapter()
+    private var cityGuidePresenter = CityGuidePresenter()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        cityGuidePresenter.cityGuideView = this
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +30,20 @@ class CityGuideFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView(view)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cityGuidePresenter.loadData()
+    }
+
+    override fun onLoadDataSuccess(data: ArrayList<Any>) {
+        cityGuideAdapter.data = data
+        cityGuideAdapter.notifyDataSetChanged()
+    }
+
+    override fun onLoadDataFailed() {
+        // TODO: Handle errors
     }
 
     private fun initRecyclerView(view: View) {
