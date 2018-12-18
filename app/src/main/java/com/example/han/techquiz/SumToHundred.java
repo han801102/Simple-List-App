@@ -1,8 +1,10 @@
 package com.example.han.techquiz;
 
 public class SumToHundred {
-    // first one only have one state
+
     private static final int DIGITS = 9;
+
+    // First one only have one state
     int[] state = new int[DIGITS - 1];
 
     class State {
@@ -11,12 +13,24 @@ public class SumToHundred {
         private static final int CARRY = 2;
     }
 
+    /* Every digits have three state: plus, minus, carry( combine with previous number )
+     *  For example:
+     *      1,     2,     3,     4      5
+     *          plus, carry, carry, minus   => 1 + 234 - 5
+     */
     public void start() {
         int carryPointer;
+
+        /*
+         * Present state array using 0, 1, 2
+         * Then, plus one in every step from 00000000 to 22222222
+         */
         while (state[DIGITS - 2] <= 2) {
             countAns();
             carryPointer = 0;
             state[carryPointer]++;
+
+            // Carry
             while (state[carryPointer] > 2 && state[DIGITS - 2] <= 2) {
                 state[carryPointer] = 0;
                 state[++carryPointer]++;
@@ -28,6 +42,7 @@ public class SumToHundred {
         int prevNum = 1;
         int ans = 0;
         StringBuilder formula = new StringBuilder();
+        // Store number until next plus or minus signj
         for (int i = 0; i < 8; i++) {
             switch (state[i]) {
                 case State.PLUS:
