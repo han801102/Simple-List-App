@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.han.techquiz.R
+import com.example.han.techquiz.api.city.MainApiClient
 import com.example.han.techquiz.home.DynamicItemAdapter
 
 /**
@@ -14,7 +15,7 @@ import com.example.han.techquiz.home.DynamicItemAdapter
  */
 class CityGuideFragment : Fragment(), CityGuideView {
     private var dynamicItemAdapter = DynamicItemAdapter()
-    private var cityGuidePresenter = CityGuidePresenter()
+    private var cityGuidePresenter = CityGuidePresenter(MainApiClient())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

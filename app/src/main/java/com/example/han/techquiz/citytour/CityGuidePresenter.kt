@@ -8,15 +8,17 @@ import com.example.han.techquiz.common.datamodel.ImageItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.util.*
 
-class CityGuidePresenter {
+class CityGuidePresenter(
+    private var cityGuideApiClient: MainApiClient,
     var cityGuideView: CityGuideView? = null
-    var cityGuideApiClient = MainApiClient()
+) {
+
 
     fun loadData() {
-        var apiCall = cityGuideApiClient.getMainApi(CityGuideApi::class.java).cities()
-        apiCall.enqueue(object: Callback<List<ManiApiResponse>> {
+        val apiCall = cityGuideApiClient.getMainApi(CityGuideApi::class.java).cities()
+        apiCall.enqueue(object : Callback<List<ManiApiResponse>> {
             override fun onFailure(call: Call<List<ManiApiResponse>>, t: Throwable) {
                 //TODO
             }

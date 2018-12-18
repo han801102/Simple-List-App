@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    testImplementation "io.mockk:mockk:1.8.9"
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
