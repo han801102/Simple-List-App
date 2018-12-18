@@ -15,8 +15,7 @@ import com.example.han.techquiz.home.DynamicItemAdapter.OnAdapterItemEventListen
  * currently display two different type of view [SingleImageViewHolder] and []
  * specified [OnAdapterItemEventListener].to indicate different item event
  */
-class DynamicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+class DynamicItemAdapter(var enableInfiniteScroll: Boolean = false) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var data = ArrayList<Any>()
         set(value) {
             data.clear()
@@ -37,12 +36,12 @@ class DynamicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         // TODO: Create abstract view holder
         when (holder) {
             is SingleImageViewHolder -> {
-                (data[position] as? ImageItem)?.let {
+                (data[position.rem(data.size)] as? ImageItem)?.let {
                     holder.bindDate(it)
                 }
             }
             is BasicViewHolder -> {
-                (data[position] as? BasicItem)?.let {
+                (data[position.rem(data.size)] as? BasicItem)?.let {
                     holder.bindDate(it)
                 }
             }
@@ -51,14 +50,15 @@ class DynamicItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (data[position]) {
+        return when (data[position.rem(data.size)]) {
             is ImageItem -> ViewType.SINGLE_IMAGE
             is BasicItem -> ViewType.BASIC
             else -> super.getItemViewType(position)
         }
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int =
+        if (enableInfiniteScroll && data.isNotEmpty()) Int.MAX_VALUE else data.size
 
     object ViewType {
         const val BASIC = 0

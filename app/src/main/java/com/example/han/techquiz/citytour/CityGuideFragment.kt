@@ -14,7 +14,7 @@ import com.example.han.techquiz.home.DynamicItemAdapter
  * A fragment representing a city guide list.
  */
 class CityGuideFragment : Fragment(), CityGuideView {
-    private var dynamicItemAdapter = DynamicItemAdapter()
+    private var dynamicItemAdapter = DynamicItemAdapter(true)
     private var cityGuidePresenter = CityGuidePresenter(MainApiClient())
 
     override fun onCreate(savedInstanceState: Bundle?) {
