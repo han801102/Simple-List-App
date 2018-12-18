@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 
 
-interface CityGuideApi {
-    @GET("/city.json")
-    fun cities(): Call<List<ManiApiResponse>>
+interface ShopApi {
+    @GET("/shop.json")
+    fun shops(): Call<List<ManiApiResponse>>
 }

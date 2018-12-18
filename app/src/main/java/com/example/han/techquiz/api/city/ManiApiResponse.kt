@@ -2,7 +2,7 @@ package com.example.han.techquiz.api.city
 
 import com.google.gson.annotations.SerializedName
 
-class CityResponse {
+class ManiApiResponse {
     @SerializedName("id")
     var id: Int = 0
 

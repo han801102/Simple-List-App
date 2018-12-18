@@ -1,8 +1,8 @@
-package com.example.han.techquiz.citytour
+package com.example.han.techquiz.shop
 
-import com.example.han.techquiz.api.city.CityGuideApi
 import com.example.han.techquiz.api.city.MainApiClient
 import com.example.han.techquiz.api.city.ManiApiResponse
+import com.example.han.techquiz.api.city.ShopApi
 import com.example.han.techquiz.common.datamodel.BasicItem
 import com.example.han.techquiz.common.datamodel.ImageItem
 import retrofit2.Call
@@ -10,12 +10,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.ArrayList
 
-class CityGuidePresenter {
-    var cityGuideView: CityGuideView? = null
-    var cityGuideApiClient = MainApiClient()
+class ShopPresenter {
+    var shopView: ShopView? = null
+    var apiClient = MainApiClient()
 
     fun loadData() {
-        var apiCall = cityGuideApiClient.getMainApi(CityGuideApi::class.java).cities()
+        val apiCall = apiClient.getMainApi(ShopApi::class.java).shops()
         apiCall.enqueue(object: Callback<List<ManiApiResponse>> {
             override fun onFailure(call: Call<List<ManiApiResponse>>, t: Throwable) {
                 //TODO
@@ -29,7 +29,7 @@ class CityGuidePresenter {
                         "single_image" -> data.add(ImageItem(it.imageUrl))
                     }
                 }
-                cityGuideView?.onLoadDataSuccess(data)
+                shopView?.onLoadDataSuccess(data)
             }
         })
     }

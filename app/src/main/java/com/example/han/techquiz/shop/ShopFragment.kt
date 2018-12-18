@@ -1,4 +1,4 @@
-package com.example.han.techquiz.citytour
+package com.example.han.techquiz.shop
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,13 +12,13 @@ import com.example.han.techquiz.home.DynamicItemAdapter
 /**
  * A fragment representing a city guide list.
  */
-class CityGuideFragment : Fragment(), CityGuideView {
+class ShopFragment : Fragment(), ShopView {
     private var dynamicItemAdapter = DynamicItemAdapter()
-    private var cityGuidePresenter = CityGuidePresenter()
+    private var shopPresenter = ShopPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        cityGuidePresenter.cityGuideView = this
+        shopPresenter.shopView = this
     }
 
     override fun onCreateView(
@@ -33,7 +33,7 @@ class CityGuideFragment : Fragment(), CityGuideView {
 
     override fun onResume() {
         super.onResume()
-        cityGuidePresenter.loadData()
+        shopPresenter.loadData()
     }
 
     override fun onLoadDataSuccess(data: ArrayList<Any>) {
@@ -50,6 +50,6 @@ class CityGuideFragment : Fragment(), CityGuideView {
     }
 
     companion object {
-        fun newInstance() = CityGuideFragment()
+        fun newInstance() = ShopFragment()
     }
 }
